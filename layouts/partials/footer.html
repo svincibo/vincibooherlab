@@ -1,0 +1,99 @@
+<style>
+    footer {
+        background-color: {{.Site.Params.footer.backgroundColor}};
+    }
+    p,a,li {
+        color: {{.Site.Params.footer.textColor}};
+    }
+    h5,h6 {
+        color: {{ .Site.Params.footer.boldTextColor }};
+    }
+</style>
+<footer>
+    <div class="container pt-5 border-bottom">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 mb-3 text-center">
+                <a href="{{.Site.Params.Footer.logoLink}}">
+                    <img src="{{.Site.Params.Footer.logo}}" alt="{{.Site.Params.Footer.logoAlt}}" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-md-9 col-sm-12">
+                <div class="col-md-4 col-sm-6 col-6 p-0 float-left mb-3">
+                    <h5 class="text-uppercase"><strong>Contact Us</strong></h5>
+                    <p><strong>{{ .Site.Params.Footer.title }}</strong></p>
+                    <p>
+                        {{range .Site.Params.Footer.address}}{{.}}<br>{{end}}
+                    </p>
+                    <p class="social">
+                        {{if .Site.Params.Footer.facebook}}
+                        <a href="{{.Site.Params.Footer.facebook}}"><i class="icons fab fa-facebook-square fa-2x"></i></a>
+                        {{end}}
+                        {{if .Site.Params.Footer.twitter}}
+                        <a href="{{.Site.Params.Footer.twitter}}"><i class="icons fab fa-twitter-square fa-2x"></i></a>
+                        {{end}}
+                        {{if .Site.Params.Footer.github}}
+                        <a href="{{.Site.Params.Footer.github}}"><i class="icons fab fa-github-square fa-2x"></i></a>
+                        {{end}}
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-6 p-0 mb-3 float-left">
+                    <h5 class="font-weight-bold text-uppercase">Related links</h5>
+
+                    {{range $section, $links := .Site.Params.Footer.RelatedLinks}}
+                    <h6 class="font-weight-bold text-uppercase">{{ $section }}</h6>
+                    <ul class="list-group">
+                        {{range $key, $value := $links}}
+                        <li class="list-group-item bg-transparent border-0 p-0 mb-2 text-uppercase">
+                            <a href="{{ $value }}">{{ $key }}</a>
+                        </li>
+                        {{end}}
+                    </ul>
+                    {{end}}
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-6 mb-3 p-0 float-left">
+                    <h5 class="font-weight-bold text-uppercase">Institutional</h5>
+                    <ul class="list-group">
+                        {{range $key, $value := .Site.Params.Footer.Institutional}}
+                        <li class="list-group-item bg-transparent border-0 p-0 mb-2 text-uppercase">
+                            <a href="{{ $value }}">{{ $key }}</a>
+                        </li>
+                        {{end}}
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-md-12">
+                <div class="py-4 d-flex justify-content-center align-items-center">
+                    <a class="mr-4" href="../privacy.html">Privacy & terms</a>
+                    <a href="../sitemap.xml">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<script src="https://kit.fontawesome.com/76ed678b6f.js" crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{.Site.Params.keys.googleMaps}}&callback=initMap&libraries=&v=weekly" async></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script><script>
+  AOS.init({
+      once:true,
+  });
+</script>
+<script>
+// document.onreadystatechange = function () {
+//   var state = document.readyState
+//   if (state == 'interactive') {
+//        document.getElementById('contents').style.visibility="hidden";
+//   } else if (state == 'complete') {
+//       setTimeout(function(){
+//          document.getElementById('interactive');
+//          document.getElementById('load').style.visibility="hidden";
+//          document.getElementById('contents').style.visibility="visible";
+//       },1000);
+//   }
+// }
+</script>
